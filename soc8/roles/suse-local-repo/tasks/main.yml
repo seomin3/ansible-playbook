@@ -1,0 +1,12 @@
+---
+- name: set no password when using sudo
+  template:
+    src: sudo.j2
+    dest: /etc/sudoers.d/stack
+
+- name: mount dvd
+  mount:
+    name: /srv/www/suse-12.3/x86_64/repos/Cloud
+    src: /dev/dvd
+    fstype: iso9660
+    state: mounted

@@ -1,0 +1,12 @@
+---
+- hosts: clm
+  become: yes
+  gather_facts: no
+  roles:
+    - suse-local-repo
+
+- hosts: soc8
+  become: yes
+  gather_facts: no
+  roles:
+    - suse-useful-tools
