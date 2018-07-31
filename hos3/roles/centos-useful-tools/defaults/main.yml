@@ -1,0 +1,14 @@
+---
+centos_useful_packages:
+  - wget
+  - curl
+  - screen
+  # debug
+  - stress
+  - iperf
+  - tcpdump
+  - nc
+  # monitoring
+  - htop
+  - dstat
+  - sysstat

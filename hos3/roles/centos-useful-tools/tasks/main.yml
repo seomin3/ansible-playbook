@@ -1,0 +1,17 @@
+---
+- name: set external name server
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+
+- name: enable epel repository
+  yum:
+    name: epel-release
+    state: present
+
+- name: install package
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ centos_useful_packages }}"

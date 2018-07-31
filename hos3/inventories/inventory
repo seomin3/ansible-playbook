@@ -1,0 +1,21 @@
+[hlm]
+hlm ansible_ssh_host=192.168.30.131
+
+[hos3:children]
+hlm
+
+[test1]
+test1 ansible_ssh_host=192.168.30.22
+[test1:vars]
+ansible_ssh_user=centos
+ansible_ssh_private_key_file=/home/stack/.ssh/id_rsa
+
+[test2]
+test2 ansible_ssh_host=192.168.32.184
+[test2:vars]
+ansible_ssh_user=centos
+ansible_ssh_private_key_file=/home/stack/.ssh/lora_id_rsa
+
+[test:children]
+test1
+test2

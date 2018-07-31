@@ -1,0 +1,17 @@
+---
+- name: disable resolv for sshd
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    line: 'UseDNS no'
+  notify: restart sshd
+
+- name: disable firewall
+  service:
+    name: iptables
+    state: stopped
+    enabled: no
+
+- name: interval change for sysstat
+  template:
+    src: cron.sysstat.j2
+    dest: /etc/cron.d/sysstat
